@@ -22,14 +22,12 @@ jobs:
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: databricks bundle validate
 
-      - name: Deploy App code
+      - name: Deploy bundle
         working-directory: bcr-pagos-api
         env:
           DATABRICKS_HOST: ${{ secrets.DATABRICKS_HOST }}
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
-        run: |
-          databricks apps deploy bcr-pagos-api \
-            --source-code-path /Workspace/Users/pjosue12@gmail.com/.bundle/bcr-pagos-api/dev/files
+        run: databricks bundle deploy -t dev
 
       - name: Start App (if not running)
         working-directory: bcr-pagos-api
@@ -45,4 +43,4 @@ jobs:
           DATABRICKS_TOKEN: ${{ secrets.DATABRICKS_TOKEN }}
         run: |
           databricks apps deploy bcr-pagos-api \
-            --source-code-path /Workspace/Users/.bundle/bcr-pagos-api/dev/files
+            --source-code-path /Workspace/Users/pjosue12@gmail.com/.bundle/bcr-pagos-api/dev/files
