@@ -1,0 +1,12 @@
+targets:
+  dev:
+    mode: development
+    default: true
+    workspace:
+      host: https://adb-7405615139458448.8.azuredatabricks.net
+
+  prod:
+    mode: production
+    workspace:
+      host: https://adb-7405615139458448.8.azuredatabricks.net
+      root_path: /Workspace/Users/.bundle/bcr-pagos-api/prod

@@ -1,0 +1,12 @@
+resources:
+  apps:
+    bcr_api:
+      name: bcr-pagos-api
+      description: "API REST sobre pagos del Lakehouse BCR"
+      source_code_path: ..
+
+      resources:
+        - name: bcr-warehouse
+          sql_warehouse:
+            id: "8026c4ac5f27bbde"
+            permission: CAN_USE
